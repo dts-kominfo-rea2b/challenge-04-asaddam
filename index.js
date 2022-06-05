@@ -8,8 +8,12 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dates, index = -1) => {
+  const convertToSeconds = dates.map(date => new Date(date).getTime() / 1000);
+  const dateInSeconds = (index == -1) ? convertToSeconds : convertToSeconds.splice(index, 1);
 
+  return dateInSeconds.sort((a, b) => a - b).join("-");
+}
 // ! JANGAN DIMODIFIKASI
 (() => {
   // IIFE
